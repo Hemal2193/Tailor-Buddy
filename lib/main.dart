@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:tailor_mate/config/supabase_config.dart';
 import 'package:tailor_mate/database/order_model.dart';
 import 'package:tailor_mate/pages/Login_SignUp/signn.dart';
 import 'package:tailor_mate/pages/New%20Order/new_order_provider.dart';
@@ -28,9 +29,9 @@ void main() async {
   await Hive.openBox('syncQueue'); // For tracking unsynced orders
 
   await Supabase.initialize(
-    url: 'https://jkmvkfjvpzgcayhshxib.supabase.co',
+    url: SupabaseConfig.supabaseUrl,
     anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImprbXZrZmp2cHpnY2F5aHNoeGliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI2ODE2OTksImV4cCI6MjA2ODI1NzY5OX0.fQcP6cmov1iCO4oCjBVhVXy7l91updUZRmzAFwi2gWE',
+        SupabaseConfig.supabaseKey,
   );
 
   SystemChrome.setSystemUIOverlayStyle(
